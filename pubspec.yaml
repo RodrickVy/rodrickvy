@@ -39,6 +39,7 @@ dependencies:
   firebase_core: ^1.18.0
   url_strategy: ^0.2.0
   flutter_launcher_icons: ^0.9.3
+  pdfx: ^2.3.0
 
 
 dev_dependencies:
