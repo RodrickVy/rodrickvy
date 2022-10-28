@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pdfx/pdfx.dart';
 import 'package:rodrickvy/controller.dart';
 import 'package:rodrickvy/firebase_options.dart';
 import 'package:rodrickvy/image.fader.dart';
@@ -15,11 +14,12 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() async {
+  setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  setPathUrlStrategy();
+
   runApp(const MyApp());
 }
 
@@ -34,18 +34,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           brightness: Brightness.light,
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
-          // colorScheme: ColorScheme(
-          //   onBackground: Colors.black, brightness: null
-          // ),
           outlinedButtonTheme: OutlinedButtonThemeData(style: OutlinedButton.styleFrom(primary: Colors.red)),
           primaryColor: Colors.orange,
           textTheme: TextTheme(
@@ -68,7 +56,7 @@ class MyApp extends StatelessWidget {
             overline: GoogleFonts.poppins(fontSize: 10, fontWeight: FontWeight.w400, letterSpacing: 1.5),
           )),
       getPages: [
-        GetPage(name: "/", page: () => Home()),
+        GetPage(name: "/", page: () => const Home()),
         GetPage(name: '/resume', page: ()=>ResumeView())
       ],
     );

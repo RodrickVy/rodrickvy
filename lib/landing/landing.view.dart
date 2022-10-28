@@ -1,17 +1,9 @@
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:pdfx/pdfx.dart';
-import 'package:rodrickvy/controller.dart';
-import 'package:rodrickvy/firebase_options.dart';
-import 'package:rodrickvy/image.fader.dart';
-import 'package:rodrickvy/resume/resume.view.dart';
 import 'package:rodrickvy/util/adaptive.dart';
-import 'package:rodrickvy/values.list.section.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_strategy/url_strategy.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
