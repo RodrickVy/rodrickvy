@@ -1,14 +1,46 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:rodrickvy/experience.data.dart';
-import 'package:rodrickvy/main.dart';
-import 'package:rodrickvy/util/adaptive.dart';
 
-class HomeController extends GetxController {
+
+class NavSection{
+  final String name;
+  final IconData icon;
+
+  NavSection({required this.name, required this.icon});
+}
+
+enum HomeSections{
+  header,
+  about,
+  
+}
+class AppController extends GetxController {
   bool viewIsScrolling = false;
   late ScrollController scrollController;
-  static RxInt currentSection = 0.obs;
+  static RxDouble currentOffset = 0.0.obs;
   static RxMap<String, String> currentProject = cards.first.projects.first.obs;
+  static RxBool controllerAttached = false.obs;
+  
+  static Rx<HomeSections> currentPage = HomeSections.header.obs ;
+  /// Circle Animation
+
+  static  Rx<double> circle1Radius = 10.0.obs;
+  static Rx<double> circle2Radius =100.0.obs;
+
+  static Rx<double> circle1YPosition = 0.0.obs;
+
+  
+  static List<NavSection> navSections = [
+    NavSection(name: "home", icon: Icons.home),
+    NavSection(name: "About", icon: Icons.info),
+    NavSection(name: "project", icon: Icons.work_history),
+    NavSection(name: "skills", icon: Icons.fact_check_rounded),
+  ];
+ static Rx<ScrollDirection> userScrollDirection = ScrollDirection.forward.obs;
   static final List<Experience> cards = [
     // Experience(
     //     heading: "The Newbie",
@@ -73,10 +105,9 @@ class HomeController extends GetxController {
     //       "assets/images/gitlab.png",
     //     ]),
     Experience(
-        heading: "My work",
+        heading: "",
         time: "",
-        description:
-            "Here are some of the projects I have worked on over the years, they represent the challenges and moments of growth I have had in my career thus far.",
+        description: "Here are some of the projects I have worked on over the years.",
         projects: [
           {
             "name": "Amen.bible",
@@ -87,7 +118,7 @@ class HomeController extends GetxController {
           },
           {
             "name": "Celebrated",
-            "url": "https://breminderapp.web.app/home",
+            "url": "https://celebrated-app.web.app/home",
             "image": "assets/images/celebrated.png",
             "description":
                 "Created  a multiplatform flutter app as a side project, that helps people remember,plan & celebrate their birthdays",
@@ -126,46 +157,56 @@ class HomeController extends GetxController {
     // ),
   ];
 
-  final int sectionsLength;
-  final double screenHeight;
   final Rx<Offset> pointerOffset = const Offset(0, 0).obs;
   final RxBool tapped = false.obs;
 
-  HomeController._(this.screenHeight, this.sectionsLength) {
-    scrollController = ScrollController(
-        initialScrollOffset: (currentSection.value * screenHeight).toDouble());
+  static String description =
+      "Am a  software developer with 3 years of experience creating adaptable web, mobile, and desktop applications.";
+
+  static String scrollGif = "assets/images/mouse-scroll.gif";
+
+  AppController() {
+    scrollController = ScrollController();
   }
 
-  static HomeController? _controller;
-
-  static HomeController homeController() {
-    _controller ??= HomeController._(Get.height * 2, cards.length);
-    return _controller!;
-  }
-
-  toNextSection() {
-    if (currentSection.value < sectionsLength - 1) {
-      currentSection.value += 1;
+  static AppController get instance {
+    try {
+      return Get.find<AppController>();
+    } catch (_) {
+      return Get.put<AppController>(AppController());
     }
-    ___animateToCurrentSection();
   }
 
-  toPreviousSection() {
-    if (currentSection.value > 0) {
-      currentSection.value -= 1;
-    }
-    ___animateToCurrentSection();
-  }
-
-  ___animateToCurrentSection() {
-    viewIsScrolling = true;
-    Future.delayed(const Duration(milliseconds: 200), () {
-      scrollController
-          .animateTo((currentSection.value * screenHeight).toDouble(),
-              duration: const Duration(milliseconds: 600), curve: Curves.linear)
-          .then((value) {
-        viewIsScrolling = false;
-      });
+  @override
+  void onReady() {
+    super.onReady();
+    Timer.periodic(const Duration(milliseconds: 100), (timer) {
+      if (scrollController.hasClients) {
+        controllerAttached(true);
+        timer.cancel();
+        print("controller_attached");
+      }
     });
+   controllerAttached.listen((p0) {
+     scrollController.addListener(() {
+       currentOffset(scrollController.offset);
+       updateAnimation(scrollController.offset);
+       userScrollDirection(scrollController.position.userScrollDirection);
+     });
+   });
+  }
+
+
+
+  void updateAnimation(double scrollOffset){
+    if(scrollOffset < 300){
+
+      circle1Radius(250-scrollOffset);
+      circle2Radius(100);
+      circle1YPosition(Get.height*((scrollOffset/300)));
+
+      print("totalHeight: ${Get.height}  \nScrollPosition: $scrollOffset \ncircleRadius: ${circle1Radius.value}\ncircle1TopPosition:${circle1YPosition.value}  ");
+
+    }
   }
 }
