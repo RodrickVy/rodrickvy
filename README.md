@@ -1,19 +1,19 @@
 <h1 align="center">Hi 👋, I'm rodrickvy</h1>
 <h3 align="center">A passionate software developer and wannabe user experience designer/entrepreneur based in BC,Canada</h3>
 
-- 🔭 I’m currently working on **on a lot celebrated/object_editor** [object_editor](https://github.com/RodrickVy/object_editor)
+- 🔭 I’m currently working on **object_editor** [object_editor](https://github.com/RodrickVy/object_editor)
 
 - 🌱 I’m currently learning **Dart macros and mirrors & User Experience Design**
 
 - 📝 I sometimes write articles on [https://medium.com/@rodrickvy](https://medium.com/@rodrickvy)
 
-- 💬 Ask me about **Flutter and Dart**
+- 💬 Ask me about **Flutter and Dart/Clean Architecture**
 
 - 📫 How to reach me **rodrielnt@gmail.com**
 
 - 📄 Know about my experiences [https://rodrickvy.com/resume](https://rodrickvy.com/resume)
 
-- ⚡ Somehting about me **I am hungry for growth**
+- ⚡ Something about me **I am hungry for growth**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
