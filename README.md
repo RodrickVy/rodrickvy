@@ -1,7 +1,7 @@
 <h1 align="center">Hi 👋, I'm rodrickvy</h1>
 <h3 align="center">A passionate software developer and wannabe user experience designer/entrepreneur based in BC,Canada</h3>
 
-- 🔭 I’m currently working on **object_editor** [object_editor](https://github.com/RodrickVy/object_editor)
+ 
 
 - 🌱 I’m currently learning **Dart macros and mirrors & User Experience Design**
 
