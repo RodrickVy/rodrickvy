@@ -1,11 +1,6 @@
 <h1 align="center">Hi 👋, I'm rodrickvy</h1>
-<h3 align="center">A passionate software developer and wannabe user experience designer/entrepreneur based in BC,Canada</h3>
+<h3 align="center">A passionate software developer and user experience designer based in BC, Canada</h3>
 
- 
-
-- 🌱 I’m currently learning **Dart macros and mirrors & User Experience Design**
-
-- 📝 I sometimes write articles on [https://medium.com/@rodrickvy](https://medium.com/@rodrickvy)
 
 - 💬 Ask me about **Flutter and Dart/Clean Architecture**
 
@@ -13,7 +8,7 @@
 
 - 📄 Know about my experiences [https://rodrickvy.com/resume](https://rodrickvy.com/resume)
 
-- ⚡ Something about me **I am hungry for growth**
+- ⚡ Something about me **I am hungry for growth always finding new things to learn**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
