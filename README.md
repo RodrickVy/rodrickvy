@@ -6,7 +6,7 @@
 
 - 📫 How to reach me **rodrielnt@gmail.com**
 
-- 📄 Know about my experiences [https://rodrickvy.com/resume](https://rodrickvy.com/resume)
+- 📄 Know about my experiences [https://rodrickvy.com](https://rodrickvy.com)
 
 - ⚡ Something about me **I am hungry for growth always finding new things to learn**
 
