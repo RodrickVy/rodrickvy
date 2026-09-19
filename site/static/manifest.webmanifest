@@ -1,0 +1,12 @@
+{
+	"name": "Rodrick Vyizigiro",
+	"short_name": "RVY",
+	"start_url": "/",
+	"display": "browser",
+	"background_color": "#0c0c0d",
+	"theme_color": "#0c0c0d",
+	"icons": [
+		{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+		{ "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+	]
+}

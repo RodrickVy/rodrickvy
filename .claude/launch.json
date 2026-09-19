@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "site", "runtimeExecutable": "npm", "runtimeArgs": ["--prefix", "site", "run", "preview", "--", "--port", "4317", "--strictPort"], "port": 4317 }
+  ]
+}
